@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Install dependencies
 apk update && apk add openssh-server jenkins vim iptables openjdk17-jre
