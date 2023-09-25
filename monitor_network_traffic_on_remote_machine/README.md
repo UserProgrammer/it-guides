@@ -42,18 +42,17 @@ ssh hostname_or_ip_of_remote_pc "tcpdump -s 0 -U -n -w - -i eth0 not port 22" /t
 7. not port 22: This is a BPF (Berkeley Packet Filter) expression used to filter the captured packets. It instructs tcpdump to exclude packets with a destination or source port of 22. Port 22 is commonly used for SSH, so this filter effectively excludes SSH traffic from the capture.
 ```
 
-3. Third & last step, give the following command to start the WireShark on your PC, which will read packets from the special FIFO file ‘/tmp/packet_capture’ at runtime.
+3. Give the following command to start the WireShark on your PC, which will read packets from the special FIFO file ‘/tmp/packet_capture’ at runtime.
 
 ```
 wireshark -k -i /tmp/packet_capture
 ```
 
-```
-1. wireshark: This is the command to launch the Wireshark application.
 
-2. -k: This option is used to start Wireshark in "live capture" mode. In this mode, Wireshark will read packets from the specified input file (/tmp/packet_capture) and display them in real-time as if they were being captured live.
+1. `wireshark: This is the command to launch the Wireshark application.`
 
-3. -i /tmp/packet_capture: This option specifies the input file from which Wireshark should read the captured packets. In this case, it points to the /tmp/packet_capture file
-```
+2. `-k: This option is used to start Wireshark in "live capture" mode. In this mode, Wireshark will read packets from the specified input file (/tmp/packet_capture) and display them in real-time as if they were being captured live.`
+
+3. `-i /tmp/packet_capture: This option specifies the input file from which Wireshark should read the captured packets. In this case, it points to the /tmp/packet_capture file`
 
 After giving the above command all the packets of remote pc’s eth0 will be visible on WireShark.
