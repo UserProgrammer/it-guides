@@ -49,10 +49,10 @@ wireshark -k -i /tmp/packet_capture
 ```
 
 
-a. `wireshark: This is the command to launch the Wireshark application.`
+`wireshark`: This is the command to launch the Wireshark application.
 
-b. `-k: This option is used to start Wireshark in "live capture" mode. In this mode, Wireshark will read packets from the specified input file (/tmp/packet_capture) and display them in real-time as if they were being captured live.`
+`-k`: This option is used to start Wireshark in "live capture" mode. In this mode, Wireshark will read packets from the specified input file (/tmp/packet_capture) and display them in real-time as if they were being captured live.
 
-c. `-i /tmp/packet_capture: This option specifies the input file from which Wireshark should read the captured packets. In this case, it points to the /tmp/packet_capture file`
+`-i /tmp/packet_capture`: This option specifies the input file from which Wireshark should read the captured packets. In this case, it points to the /tmp/packet_capture file
 
 After giving the above command all the packets of remote pc’s eth0 will be visible on WireShark.
