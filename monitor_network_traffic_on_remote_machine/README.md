@@ -6,13 +6,13 @@ Credit for the the detailed explanations of the `ssh` and `wireshark` commands g
 
 ## Guide
 
-1. First step is to create a special FIFO file using mkfifo command, where you want to see the packet capture using WireShark. This file will use to read & write simultaneously using WireShark & tcpdump.
+1. Create a special FIFO file using mkfifo command, where you want to see the packet capture using WireShark. This file will use to read & write simultaneously using WireShark & tcpdump.
 
 ```
 mkfifo /tmp/packet_capture
 ```
 
-2. Second give the following ssh command on your terminal, to start the tcpdump on remote PC.
+2. Give the following ssh command on your terminal, to start the tcpdump on remote PC.
 
 ```
 ssh hostname_or_ip_of_remote_pc "tcpdump -s 0 -U -n -w - -i eth0 not port 22" /tmp/packet_capture
