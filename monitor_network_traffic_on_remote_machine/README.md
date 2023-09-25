@@ -6,13 +6,13 @@ Credit for the the detailed explanations of the `ssh` and `wireshark` commands g
 
 ## Guide
 
-1. Create a special FIFO file using mkfifo command, where you want to see the packet capture using WireShark. This file will use to read & write simultaneously using WireShark & tcpdump.
+### 1. Create a special FIFO file using mkfifo command, where you want to see the packet capture using WireShark. This file will use to read & write simultaneously using WireShark & tcpdump.
 
 ```
 mkfifo /tmp/packet_capture
 ```
 
-2. Give the following ssh command on your terminal, to start the tcpdump on remote PC.
+### 2. Give the following ssh command on your terminal, to start the tcpdump on remote PC.
 
 ```
 ssh hostname_or_ip_of_remote_pc "tcpdump -s 0 -U -n -w - -i eth0 not port 22" /tmp/packet_capture
@@ -38,7 +38,7 @@ ssh hostname_or_ip_of_remote_pc "tcpdump -s 0 -U -n -w - -i eth0 not port 22" /t
 
 `not port 22`: This is a BPF (Berkeley Packet Filter) expression used to filter the captured packets. It instructs tcpdump to exclude packets with a destination or source port of 22. Port 22 is commonly used for SSH, so this filter effectively excludes SSH traffic from the capture.
 
-3. Give the following command to start the WireShark on your PC, which will read packets from the special FIFO file ‘/tmp/packet_capture’ at runtime.
+### 3. Give the following command to start the WireShark on your PC, which will read packets from the special FIFO file ‘/tmp/packet_capture’ at runtime.
 
 ```
 wireshark -k -i /tmp/packet_capture
