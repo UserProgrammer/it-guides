@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+
+command="/usr/bin/wg-quick up"
+command_args="/etc/wireguard/wg0.conf"
+command_user="root"
+
+stop() {
+  wg-quick down /etc/wireguard/wg0.conf
+}
