@@ -1,0 +1,14 @@
+[Unit]
+Description=Tinyproxy is a light-weight HTTP/HTTPS proxy daemon for POSIX operating systems
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=tinyproxy
+Group=tinyproxy
+ExecStart=tinyproxy -d
+
+[Install]
+WantedBy=multi-user.target
