@@ -15,7 +15,7 @@ mkfifo /tmp/packet_capture
 ### 2. Run the following ssh command on your terminal to start tcpdump on the remote machine.
 
 ```
-ssh hostname_or_ip_of_remote_pc "tcpdump -s 0 -U -n -w - -i eth0 not port 22" /tmp/packet_capture
+ssh hostname_or_ip_of_remote_pc "tcpdump -s 0 -U -n -w - -i eth0 not port 22" > /tmp/packet_capture
 ```
 
 `ssh hostname_or_ip_of_remote_pc`: This initiates an SSH connection to a remote PC using the specified hostname or IP address.
